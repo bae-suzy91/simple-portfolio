@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Javascript Assignment</title>
+</head>
+<body>
+	<h3 style="text-align: center;">Introduction to Javascript</h3>
+
+<script>
+	//Assignment 1
+	// my profile(data types + arrays + operators)
+	//let fullname = "Abiathar Suzie";
+	let Age = "22";
+	let isStudent = true;
+	let favoritecolors = ["pink","blue","green","red"];
+	let address = {street: "no 3 st" , city : "plateau", country: "nigeria"}
+
+	let emptyvalue=null;
+	let notdefined;
+
+	console.log(emptyvalue);
+	console.log(notdefined)
+	console.log(isStudent)
+	console.log(favoritecolors)
+
+	//calculate next years age
+	let nextyearage = 22 + 1;
+	console.log(nextyearage)
+
+	//second log
+	console.log("second favoritecolors:",favoritecolors[3]);
+	console.log("country:",address.country);
+
+	console.log('my name is: ${fullname}.my age is {Age} and i  live in {address}');
+	
+   // Assignment 2
+	let num1 = 1000;
+    let num2 = 3000;
+    let result;
+
+   // Check for zero first
+   if (num1 === 0 || num2 === 0) {
+       result = "Cannot divide by zero";
+    } else if (num1 % 2 === 0 && num2 % 2 === 0) {
+       result = num1 + num2;
+    } else if (num1 % 2 !== 0 && num2 % 2 !== 0) {
+       result = num1 - num2;
+    } else {
+       result = num1 * num2;
+    }
+
+   // Log the result
+     console.log("Result:", result);
+
+   // Check if the result is a number before using the ternary
+      typeof result === "number"
+      ? console.log(result > 100 ? "large result" : "small result")
+       : console.log("Operation failed:", result);
+
+
+    let num3 = 30;
+    let num4 = 60;
+    let results;
+
+   // Check for zero first
+   if (num3 === 0 || num4 === 0) {
+       results = "Cannot divide by zero";
+    } else if (num3 % 2 === 0 && num4 % 2 === 0) {
+       results = num3 + num4;
+    } else if (num3 % 2 !== 0 && num4 % 2 !== 0) {
+       results = num3 - num4;
+    } else {
+       result = num3 * num4;
+    }
+
+   // Log the result
+     console.log("Results:", results);
+
+   // Check if the results is a number before using the ternary
+      typeof results === "number"
+      ? console.log(results > 100 ? "large results" : "small results")
+       : console.log("Operation failed:", results);
+
+
+
+
+
+	//Assignment 3
+	//favoritethings with 3 objects
+
+	let favoritethings =[{name:"red" ,type:"color", rating:"10" },{name:"soccer", type:"game", rating:"20"}, {name:"bts", type:"music", 
+        rating:"30"}];
+     //access + condition
+	//log names with rating
+	favoritethings.forEach(item => { if (item.rating > 7) {console.log(item.name);}
+});
+
+	//if any item is a game,log message
+	if (favoritethings.some(item=> item.type ==="game")){console.log("i love games!!");}
+
+	//log type of second item
+	console.log(favoritethings[1].type);
+
+	//array methods
+	//Add items to end
+	favoritethings.push({name:"zelda", type:"book", rating:"8"});
+	console.log("After push:",favoritethings);
+
+	//add item to the beginning
+	favoritethings.unshift({name:"francine rivers", type:"author", rating:"50"});
+	console.log("After unshift:",favoritethings);
+
+    //remove last item
+	favoritethings.pop();
+	console.log("After pop:",favoritethings);
+
+    //remove first item
+	favoritethings.shift();
+	console.log("After shift:",favoritethings);
+
+  	//remove second item(index 1 after prior changes)
+	favoritethings.splice(1, 1);
+	console.log("After splice:",favoritethings);
+
+
+	//object mutation
+	//add yearreleased to any item
+	favoritethings[0].yearreleased = 2011;
+	favoritethings[1].yearreleased = 2013;
+
+	//update rating
+	favoritethings[0].rating = 15;
+	favoritethings[1].rating = 20;
+
+	//delete type
+	delete favoritethings[0].type;
+
+	console.log("updated object:",favoritethings[0]);
+	console.log("updated object:",favoritethings[1]);
+
+	//Assignment 4
+
+	//creating userprofile
+	function createuserprofile(name,age,isStudent,hobbies){
+		return {
+			name:name,
+			age:age,
+			isStudent:isStudent,
+			hobbies:hobbies,
+		};
+	}
+
+	//get summary
+	function getusersummary(user){
+		const pronoun = user.isStudent? "she/he" : "they";
+		return '${user,name} is ${user.age} years old. ${pronoun} loves{user.hobbies.join(",")}.';
+	}
+
+	//user profile and log their summaries
+	const user1 = createuserprofile("daphine", 18, true, ["reading","dancing"]);
+	const user2 = createuserprofile("jessy", 12, false, ["singing","cycling"]);
+	
+	console.log(getusersummary(user1));
+	console.log(getusersummary(user2));
+
+
+	//can access restricted area
+	function canaccessrestrictedarea(user){
+		return user.age >= 18;
+	}
+	 console.log(canaccessrestrictedarea(user1)); //false
+	 console.log(canaccessrestrictedarea(user2)); //true
+
+	
+</script>
+</body>
+</html>
